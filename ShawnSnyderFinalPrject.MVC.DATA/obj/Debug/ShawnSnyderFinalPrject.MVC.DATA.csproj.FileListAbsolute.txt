@@ -4,3 +4,15 @@ C:\Users\student\Documents\Visual Studio 2017\Projects\Projects\12_PROJECT\Shawn
 C:\Users\student\Documents\Visual Studio 2017\Projects\Projects\12_PROJECT\ShawnSnyderFinalProject\ShawnSnyderFinalPrject.MVC.DATA\obj\Debug\ShawnSnyderFinalPrject.MVC.DATA.csproj.CoreCompileInputs.cache
 C:\Users\student\Documents\Visual Studio 2017\Projects\Projects\12_PROJECT\ShawnSnyderFinalProject\ShawnSnyderFinalPrject.MVC.DATA\obj\Debug\ShawnSnyderFinalPrject.MVC.DATA.dll
 C:\Users\student\Documents\Visual Studio 2017\Projects\Projects\12_PROJECT\ShawnSnyderFinalProject\ShawnSnyderFinalPrject.MVC.DATA\obj\Debug\ShawnSnyderFinalPrject.MVC.DATA.pdb
+C:\Users\student\Documents\Visual Studio 2017\Projects\Projects\12_PROJECT\ShawnSnyderFinalProject\src\ShawnSnyderFinalPrject.MVC.DATA\bin\Debug\ShawnSnyderFinalPrject.MVC.DATA.dll.config
+C:\Users\student\Documents\Visual Studio 2017\Projects\Projects\12_PROJECT\ShawnSnyderFinalProject\src\ShawnSnyderFinalPrject.MVC.DATA\bin\Debug\ShawnSnyderFinalPrject.MVC.DATA.dll
+C:\Users\student\Documents\Visual Studio 2017\Projects\Projects\12_PROJECT\ShawnSnyderFinalProject\src\ShawnSnyderFinalPrject.MVC.DATA\bin\Debug\ShawnSnyderFinalPrject.MVC.DATA.pdb
+C:\Users\student\Documents\Visual Studio 2017\Projects\Projects\12_PROJECT\ShawnSnyderFinalProject\src\ShawnSnyderFinalPrject.MVC.DATA\bin\Debug\EntityFramework.dll
+C:\Users\student\Documents\Visual Studio 2017\Projects\Projects\12_PROJECT\ShawnSnyderFinalProject\src\ShawnSnyderFinalPrject.MVC.DATA\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\student\Documents\Visual Studio 2017\Projects\Projects\12_PROJECT\ShawnSnyderFinalProject\src\ShawnSnyderFinalPrject.MVC.DATA\bin\Debug\EntityFramework.xml
+C:\Users\student\Documents\Visual Studio 2017\Projects\Projects\12_PROJECT\ShawnSnyderFinalProject\src\ShawnSnyderFinalPrject.MVC.DATA\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\student\Documents\Visual Studio 2017\Projects\Projects\12_PROJECT\ShawnSnyderFinalProject\src\ShawnSnyderFinalPrject.MVC.DATA\obj\Debug\ShawnSnyderFinalPrject.MVC.DATA.csprojAssemblyReference.cache
+C:\Users\student\Documents\Visual Studio 2017\Projects\Projects\12_PROJECT\ShawnSnyderFinalProject\src\ShawnSnyderFinalPrject.MVC.DATA\obj\Debug\ShawnSnyderFinalPrject.MVC.DATA.csproj.CoreCompileInputs.cache
+C:\Users\student\Documents\Visual Studio 2017\Projects\Projects\12_PROJECT\ShawnSnyderFinalProject\src\ShawnSnyderFinalPrject.MVC.DATA\obj\Debug\ShawnSnyderFinalPrject.MVC.DATA.csproj.CopyComplete
+C:\Users\student\Documents\Visual Studio 2017\Projects\Projects\12_PROJECT\ShawnSnyderFinalProject\src\ShawnSnyderFinalPrject.MVC.DATA\obj\Debug\ShawnSnyderFinalPrject.MVC.DATA.dll
+C:\Users\student\Documents\Visual Studio 2017\Projects\Projects\12_PROJECT\ShawnSnyderFinalProject\src\ShawnSnyderFinalPrject.MVC.DATA\obj\Debug\ShawnSnyderFinalPrject.MVC.DATA.pdb

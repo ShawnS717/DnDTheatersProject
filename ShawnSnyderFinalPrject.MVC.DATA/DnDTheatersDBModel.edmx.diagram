@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="9297f8924c2245e2bcddf2eefe34112a" Name="Diagram1">
+        <EntityTypeShape EntityType="DnDTheatersModel.C__MigrationHistory" Width="1.5" PointX="2.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DnDTheatersModel.AspNetRole" Width="1.5" PointX="1.5" PointY="12.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DnDTheatersModel.AspNetUserClaim" Width="1.5" PointX="6" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DnDTheatersModel.AspNetUserLogin" Width="1.5" PointX="6" PointY="13.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DnDTheatersModel.AspNetUser" Width="1.5" PointX="3.75" PointY="11" IsExpanded="true" />
+        <EntityTypeShape EntityType="DnDTheatersModel.Movy" Width="1.5" PointX="0.75" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DnDTheatersModel.SeatID" Width="1.5" PointX="10.5" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="DnDTheatersModel.Showtime" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DnDTheatersModel.sysdiagram" Width="1.5" PointX="4.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DnDTheatersModel.TheaterMovy" Width="1.5" PointX="3" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DnDTheatersModel.Theater" Width="1.5" PointX="0.75" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DnDTheatersModel.Ticket" Width="1.5" PointX="8.25" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DnDTheatersModel.UserDetail" Width="1.5" PointX="6" PointY="3.75" IsExpanded="true" />
+        <AssociationConnector Association="DnDTheatersModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="DnDTheatersModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="DnDTheatersModel.FK_UserDetails_AspNetUsers" ManuallyRouted="false" />
+        <AssociationConnector Association="DnDTheatersModel.FK_TheaterMovies_Movies" ManuallyRouted="false" />
+        <AssociationConnector Association="DnDTheatersModel.FK_SeatID_TheaterMovies" ManuallyRouted="false" />
+        <AssociationConnector Association="DnDTheatersModel.FK_SeatID_Tickets" ManuallyRouted="false" />
+        <AssociationConnector Association="DnDTheatersModel.FK_TheaterMovies_Showtimes" ManuallyRouted="false" />
+        <AssociationConnector Association="DnDTheatersModel.FK_TheaterMovies_Theaters" ManuallyRouted="false" />
+        <AssociationConnector Association="DnDTheatersModel.FK_UserDetails_Theaters" ManuallyRouted="false" />
+        <AssociationConnector Association="DnDTheatersModel.FK_Tickets_UserDetails" ManuallyRouted="false" />
+        <AssociationConnector Association="DnDTheatersModel.AspNetUserRoles" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

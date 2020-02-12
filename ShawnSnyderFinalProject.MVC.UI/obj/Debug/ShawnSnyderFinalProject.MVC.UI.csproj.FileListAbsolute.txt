@@ -139,3 +139,4 @@ C:\Users\student\Documents\Visual Studio 2017\Projects\Projects\12_PROJECT\Shawn
 C:\Users\student\Documents\Visual Studio 2017\Projects\Projects\12_PROJECT\ShawnSnyderFinalProject\src\ShawnSnyderFinalProject.MVC.UI\obj\Debug\ShawnSnyderFinalProject.MVC.UI.dll
 C:\Users\student\Documents\Visual Studio 2017\Projects\Projects\12_PROJECT\ShawnSnyderFinalProject\src\ShawnSnyderFinalProject.MVC.UI\obj\Debug\ShawnSnyderFinalProject.MVC.UI.pdb
 C:\Users\student\Documents\Visual Studio 2017\Projects\Projects\12_PROJECT\ShawnSnyderFinalProject\src\ShawnSnyderFinalProject.MVC.UI\bin\Newtonsoft.Json.xml
+C:\Users\student\Documents\Visual Studio 2017\Projects\Projects\12_PROJECT\ShawnSnyderFinalProject\src\ShawnSnyderFinalProject.MVC.UI\bin\ShawnSnyderFinalPrject.MVC.DATA.dll.config
