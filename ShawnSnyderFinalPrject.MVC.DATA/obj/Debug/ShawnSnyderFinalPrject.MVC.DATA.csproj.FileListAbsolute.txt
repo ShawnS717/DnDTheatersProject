@@ -1,0 +1,6 @@
+C:\Users\student\Documents\Visual Studio 2017\Projects\Projects\12_PROJECT\ShawnSnyderFinalProject\ShawnSnyderFinalPrject.MVC.DATA\bin\Debug\ShawnSnyderFinalPrject.MVC.DATA.dll
+C:\Users\student\Documents\Visual Studio 2017\Projects\Projects\12_PROJECT\ShawnSnyderFinalProject\ShawnSnyderFinalPrject.MVC.DATA\bin\Debug\ShawnSnyderFinalPrject.MVC.DATA.pdb
+C:\Users\student\Documents\Visual Studio 2017\Projects\Projects\12_PROJECT\ShawnSnyderFinalProject\ShawnSnyderFinalPrject.MVC.DATA\obj\Debug\ShawnSnyderFinalPrject.MVC.DATA.csprojAssemblyReference.cache
+C:\Users\student\Documents\Visual Studio 2017\Projects\Projects\12_PROJECT\ShawnSnyderFinalProject\ShawnSnyderFinalPrject.MVC.DATA\obj\Debug\ShawnSnyderFinalPrject.MVC.DATA.csproj.CoreCompileInputs.cache
+C:\Users\student\Documents\Visual Studio 2017\Projects\Projects\12_PROJECT\ShawnSnyderFinalProject\ShawnSnyderFinalPrject.MVC.DATA\obj\Debug\ShawnSnyderFinalPrject.MVC.DATA.dll
+C:\Users\student\Documents\Visual Studio 2017\Projects\Projects\12_PROJECT\ShawnSnyderFinalProject\ShawnSnyderFinalPrject.MVC.DATA\obj\Debug\ShawnSnyderFinalPrject.MVC.DATA.pdb
