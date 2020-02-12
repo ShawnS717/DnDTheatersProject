@@ -1,0 +1,52 @@
+﻿body {
+    background-color: #555;
+}
+.navbar {
+    margin-bottom: 0;
+    border-radius: 0;
+    padding:10px 0;
+}
+
+.navbar li a {
+    color:white;
+}
+
+#main-wrapper{
+    min-height:85vh;
+}
+
+.row.content {
+    height: 450px
+}
+
+.sidenav {
+    padding-top: 20px;
+    background-color: #444;
+    min-height: 85vh;
+}
+
+.navbar-right {
+    margin-right:10px;
+}
+
+footer {
+    background-color: #555;
+    color: white;
+    padding: 15px;
+    height:100%;
+}
+
+/* On small screens, ditch the side padding */
+@media screen and (max-width: 767px) {
+    .sidenav{
+        display:none;
+    }
+    .navbar-right{
+        margin-right:-15px;
+    }
+    #myNavbar{
+        width:80%;
+        margin:auto;
+        overflow-x:hidden
+    }
+}
