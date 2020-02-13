@@ -1,4 +1,29 @@
-﻿@{
-    ViewBag.Title = "Home Page";
+﻿@model IEnumerable<ShawnSnyderFinalPrject.MVC.DATA.Movy>
+
+@{
+    ViewBag.Title = "Index";
 }
 
+<h2 class="text-center">Movies Playing Now!</h2>
+
+<div class="owl-carousel well">
+    @foreach (var item in Model)
+    {
+        <div style="padding:initial 10px;">
+            <a href="@Url.Action("Details", "Movies", new { id=item.MovieId })" style="color:black">
+                <img src="~/Content/img/@item.ImagePath" alt="Movie's poster" />
+                <p>@item.Name</p>
+                <p>@item.Description</p>
+            </a>
+            <a class="text-danger">DELETE</a>
+        </div>
+    }
+</div>
+
+@section scripts{
+    <script>
+        $(document).ready(function () {
+            $(".owl-carousel").owlCarousel();
+        });
+    </script>
+}

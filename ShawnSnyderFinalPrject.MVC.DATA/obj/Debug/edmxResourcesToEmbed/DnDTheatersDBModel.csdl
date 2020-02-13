@@ -113,6 +113,7 @@
     <NavigationProperty Name="SeatIDs" Relationship="Self.FK_SeatID_TheaterMovies" FromRole="TheaterMovies" ToRole="SeatID" />
     <NavigationProperty Name="Showtime" Relationship="Self.FK_TheaterMovies_Showtimes" FromRole="TheaterMovies" ToRole="Showtimes" />
     <NavigationProperty Name="Theater" Relationship="Self.FK_TheaterMovies_Theaters" FromRole="TheaterMovies" ToRole="Theaters" />
+    <Property Name="Date" Type="DateTime" Precision="0" Nullable="false" />
   </EntityType>
   <EntityType Name="Theater">
     <Key>

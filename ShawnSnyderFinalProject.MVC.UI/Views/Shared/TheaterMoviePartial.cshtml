@@ -1,0 +1,25 @@
+﻿@model ShawnSnyderFinalPrject.MVC.DATA.Movy
+@{
+    ShawnSnyderFinalPrject.MVC.DATA.DnDTheatersEntities db = new ShawnSnyderFinalPrject.MVC.DATA.DnDTheatersEntities();
+    var theaters = db.TheaterMovies.Where(x => x.MovieID == Model.MovieId).Distinct().ToList();
+}
+
+<h3 class="text-center">Theaters Playing @Model.Name:</h3>
+<hr />
+<table>
+    <thead>
+        <tr>
+            <th>Theater Name</th>
+            <th>Location</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in theaters)
+        {
+            <tr>
+                <td>@item.Theater.TheaterName</td>
+                <td>@item.Theater.Address @item.Theater.City @item.Theater.State</td>
+            </tr>
+        }
+    </tbody>
+</table>

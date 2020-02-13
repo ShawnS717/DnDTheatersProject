@@ -99,6 +99,7 @@
     <EntitySetMapping Name="TheaterMovies">
       <EntityTypeMapping TypeName="DnDTheatersModel.TheaterMovy">
         <MappingFragment StoreEntitySet="TheaterMovies">
+          <ScalarProperty Name="Date" ColumnName="Date" />
           <ScalarProperty Name="TMID" ColumnName="TMID" />
           <ScalarProperty Name="TheaterID" ColumnName="TheaterID" />
           <ScalarProperty Name="MovieID" ColumnName="MovieID" />

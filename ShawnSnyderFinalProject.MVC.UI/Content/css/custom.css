@@ -1,18 +1,27 @@
 ﻿body {
     background-color: #555;
+    background-image: url(../img/BackgroundImage.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: contain;
 }
+
 .navbar {
     margin-bottom: 0;
     border-radius: 0;
-    padding:10px 0;
+    padding: 10px 0;
+    z-index:10;
 }
 
-.navbar li a {
-    color:white;
-}
+    .navbar li a {
+        color: white;
+    }
 
-#main-wrapper{
-    min-height:85vh;
+#main-wrapper {
+    min-height: 85vh;
+    background-color:white;
+    width:60%;
+    padding:30px;
 }
 
 .row.content {
@@ -21,32 +30,39 @@
 
 .sidenav {
     padding-top: 20px;
-    background-color: #444;
-    min-height: 85vh;
+    background-color: #333;
+    background-image: url(../img/BackgroundImage.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: contain;
+    min-height: 110vh;
+    margin-top:-100px;
 }
 
 .navbar-right {
-    margin-right:10px;
+    margin-right: 10px;
 }
 
 footer {
-    background-color: #555;
+    background-color: black;
     color: white;
     padding: 15px;
-    height:100%;
+    height: 100%;
 }
 
 /* On small screens, ditch the side padding */
 @media screen and (max-width: 767px) {
-    .sidenav{
-        display:none;
+    #main-wrapper{
+        width:100%;
     }
-    .navbar-right{
-        margin-right:-15px;
+
+    .navbar-right {
+        margin-right: -15px;
     }
-    #myNavbar{
-        width:80%;
-        margin:auto;
-        overflow-x:hidden
+
+    #myNavbar {
+        width: 80%;
+        margin: auto;
+        overflow-x: hidden
     }
 }

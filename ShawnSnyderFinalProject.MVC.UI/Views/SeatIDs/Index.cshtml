@@ -1,0 +1,39 @@
+﻿@model IEnumerable<ShawnSnyderFinalPrject.MVC.DATA.SeatID>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TheaterMovy.TMID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ticket.UserID)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.TheaterMovy.TMID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ticket.UserID)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.SeatID1 }) |
+            @Html.ActionLink("Details", "Details", new { id=item.SeatID1 }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.SeatID1 })
+        </td>
+    </tr>
+}
+
+</table>

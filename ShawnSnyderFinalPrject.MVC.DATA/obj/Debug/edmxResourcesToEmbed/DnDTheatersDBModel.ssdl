@@ -106,6 +106,7 @@
     <Property Name="MovieID" Type="int" Nullable="false" />
     <Property Name="ShowtimeID" Type="int" Nullable="false" />
     <Property Name="ReservationLimit" Type="tinyint" Nullable="false" />
+    <Property Name="Date" Type="date" Nullable="false" />
   </EntityType>
   <EntityType Name="Theaters">
     <Key>

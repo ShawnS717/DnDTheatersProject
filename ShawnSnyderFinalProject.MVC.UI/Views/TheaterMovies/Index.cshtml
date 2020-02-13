@@ -1,0 +1,51 @@
+﻿@model IEnumerable<ShawnSnyderFinalPrject.MVC.DATA.TheaterMovy>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ReservationLimit)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Movy.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Showtime.ShowtimeID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Theater.TheaterName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ReservationLimit)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Movy.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Showtime.ShowtimeID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Theater.TheaterName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.TMID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.TMID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.TMID })
+        </td>
+    </tr>
+}
+
+</table>

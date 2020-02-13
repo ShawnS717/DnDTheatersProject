@@ -1,13 +1,16 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Bootstrap Example</title>
+    <title>DnD Theaters</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link href="~/Content/OwlCarousel2-2.3.4/dist/assets/owl.carousel.min.css" rel="stylesheet" />
+    <link href="~/Content/OwlCarousel2-2.3.4/dist/assets/owl.theme.default.min.css" rel="stylesheet" />
     <link href="~/Content/css/custom.css" rel="stylesheet" />
     @RenderSection("style", false)
 </head>
@@ -24,10 +27,10 @@
             </div>
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav">
-                    <li><a href="#"class="btn">Home</a></li>
-                    <li><a href="#"class="btn">About</a></li>
-                    <li><a href="#"class="btn">Projects</a></li>
-                    <li><a href="#"class="btn">Contact</a></li>
+                    <li><a href="#" class="btn">Home</a></li>
+                    <li><a href="#" class="btn">About</a></li>
+                    <li><a href="#" class="btn">Projects</a></li>
+                    <li><a href="#" class="btn">Contact</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     @Html.Partial("_LoginPartial")
@@ -35,21 +38,19 @@
             </div>
         </div>
     </nav>
-    <div class="container-fluid text-center" id="main-wrapper">
-        <div class="row content">
-            <div class="col-sm-2 sidenav"></div>
-            <div class="col-sm-8 text-left">
-                <main>
-                    @RenderBody()
-                </main>
-            </div>
-            <div class="col-sm-2 sidenav"></div>
-        </div>
+
+    <div class="container-fluid" id="main-wrapper">
+        <main>
+            @RenderBody()
+        </main>
     </div>
+
     <footer class="container-fluid text-center">
         <p>Footer Text</p>
     </footer>
+
     <script src="~/Content/js/jquery-1.11.2.min.js"></script>
+    <script src="~/Content/OwlCarousel2-2.3.4/dist/owl.carousel.min.js"></script>
     @RenderSection("scripts", false)
 </body>
 </html>

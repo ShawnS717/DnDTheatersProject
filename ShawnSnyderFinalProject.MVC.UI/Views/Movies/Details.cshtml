@@ -1,0 +1,25 @@
+﻿@model ShawnSnyderFinalPrject.MVC.DATA.Movy
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<div class="well">
+    <img src="~/Content/img/@Model.ImagePath" alt="Movie's Poster" class="well" style="width:200px;height:200px;display:inline-block;"/>
+    <div style="display:inline-block;padding-left:10px;">
+        <h3>
+            @Html.DisplayFor(model => model.Name)
+        </h3>
+        <p>
+            @Html.DisplayFor(model => model.Description)
+        </p>
+        <p>
+            @Html.DisplayNameFor(model => model.esrbRating): @Html.DisplayFor(model => model.esrbRating)
+        </p>
+        <p>
+            Overall Rating: @Html.DisplayFor(model => model.PercentRating)%
+        </p>
+    </div>
+</div>
+
+@Html.Partial("TheaterMoviePartial")
