@@ -488,6 +488,8 @@
     <Content Include="Views\SeatIDs\Edit.cshtml" />
     <Content Include="Views\SeatIDs\Index.cshtml" />
     <Content Include="Views\Shared\TheaterMoviePartial.cshtml" />
+    <Content Include="Views\TheaterMovies\GetReservation.cshtml" />
+    <Content Include="Views\TheaterMovies\MakeReservation.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

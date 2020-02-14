@@ -1,0 +1,54 @@
+﻿@model IEnumerable<ShawnSnyderFinalPrject.MVC.DATA.TheaterMovy>
+
+@{
+    ViewBag.Title = "GetReservation";
+}
+
+
+<h2 class="text-center">Pick a Time</h2>
+
+@foreach (var day in Model)
+{
+    <div style="border-top:2px solid gray;padding-top:1.5em;">@Html.DisplayTextFor(x => day.Date)</div>
+    foreach (var time in Model.Where(x => x.Date == day.Date))
+    {
+        int hour = time.Showtime.Time / 100;
+        int min = time.Showtime.Time % 100;
+        <div class="card">
+            <input type="radio" name="day-time-selection" id="selectionRadio@(day.Date + "-" + time.Showtime.Time)" value="@time.TMID" onclick="updateForm(@time.TMID,@(day.ReservationLimit - day.SeatIDs.Count))" />
+            <label for="selectionRadio@(day.Date + "-" + time.Showtime.Time)" class="well">
+                @((hour > 0) ? hour.ToString() : "12"):@min
+                <br />
+                Remaining seats: @Html.Raw(day.ReservationLimit - day.SeatIDs.Count)
+            </label>
+        </div>
+    }
+}
+<br />
+
+@using (Html.BeginForm("MakeReservation", "TheaterMovies"))
+{
+    <div style="display:inline-block">
+        <h4>How many tickets do you want?</h4>
+        <input id="nbrTickets" type="number" min="1" class="form-control" placeholder="# of Tickets" style="width:10em;" name="numOfTickets"  />
+    </div>
+    <input type="hidden" id="tmid" name="tmid" />
+    <div style="display:inline-block">
+        <input type="submit" value="Buy Tickets" class="btn btn-success" />
+    </div>
+}
+
+@section scripts{
+    <script>
+        function updateForm(tmid,limit) {
+            document.getElementById("tmid").value = tmid;
+            document.getElementById("nbrTickets").max = limit;
+        }
+    </script>
+    @if (ViewBag.ErrorMessage != null)
+    {
+        <script>
+            alert(@ViewBag.ErrorMessage);
+        </script>
+    }
+}

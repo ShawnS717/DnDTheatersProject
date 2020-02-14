@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using Microsoft.AspNet.Identity;
 using ShawnSnyderFinalPrject.MVC.DATA;
 
 namespace ShawnSnyderFinalProject.MVC.UI.Controllers
@@ -126,6 +127,59 @@ namespace ShawnSnyderFinalProject.MVC.UI.Controllers
             db.TheaterMovies.Remove(theaterMovy);
             db.SaveChanges();
             return RedirectToAction("Index");
+        }
+
+        [HttpGet]
+        public ActionResult GetReservation(int? theaterID, int? movieID)
+        {
+            if (theaterID == null || movieID == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            var theaterMovies = db.TheaterMovies.Include(t => t.Movy).Include(t => t.Showtime).Include(t => t.Theater).Include(t => t.SeatIDs);
+            return View(theaterMovies.Where(x => (x.ReservationLimit - x.SeatIDs.Count) > 0 && x.TheaterID == theaterID && x.MovieID == movieID && x.Date > DateTime.Now).ToList());
+        }
+
+        [HttpPost]
+        public ActionResult MakeReservation(int? numOfTickets, int? tmid)
+        {
+            if (numOfTickets < 1 || numOfTickets == null || tmid==null || tmid==0)
+            {
+                var theaterMovies = db.TheaterMovies.Include(x => x.Movy).Include(x => x.Showtime).Include(x => x.Theater).Include(x => x.SeatIDs);
+
+                TheaterMovy tm = db.TheaterMovies.Where(x => x.TMID == tmid).SingleOrDefault();
+                ViewBag.ErrorMessage = "you put in something invalid (probably nothing in the number of tickets you want)";
+                return View("GetReservation", theaterMovies.Where(x => (x.ReservationLimit - x.SeatIDs.Count) > 0 && x.TheaterID == tm.TheaterID && x.MovieID == tm.MovieID && x.Date > DateTime.Now).ToList());
+            }
+            string userID;
+
+            Ticket t = new Ticket();
+            if (Request.IsAuthenticated)
+            {
+                userID = User.Identity.GetUserId();
+            }
+            else
+            {
+                userID = "761aa9be-9849-4596-a8e7-d30611343cb9";
+            }
+            t.UserID = userID;
+            for (int i = 0; i < numOfTickets; i++)
+            {
+                db.Tickets.Add(t); 
+            }
+            db.SaveChanges();
+
+            var purchasedTickets = db.Tickets.Where(x => x.UserID == userID).OrderBy(x=>x.TicketID).Take((int)numOfTickets).ToList();
+            foreach(var item in purchasedTickets)
+            {
+                SeatID s = new SeatID();
+                s.TMID = (int)tmid;
+                s.TicketID = item.TicketID;
+                db.SeatIDs.Add(s);
+            }
+            db.SaveChanges();
+
+            return View();
         }
 
         protected override void Dispose(bool disposing)

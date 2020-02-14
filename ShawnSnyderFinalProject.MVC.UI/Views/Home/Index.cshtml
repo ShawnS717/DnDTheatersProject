@@ -12,8 +12,8 @@
         <div style="padding:initial 10px;">
             <a href="@Url.Action("Details", "Movies", new { id=item.MovieId })" style="color:black">
                 <img src="~/Content/img/@item.ImagePath" alt="Movie's poster" />
-                <p>@item.Name</p>
-                <p>@item.Description</p>
+                <p class="text-center">@item.Name</p>
+                <p class="text-center">@item.Description</p>
             </a>
             <a class="text-danger">DELETE</a>
         </div>

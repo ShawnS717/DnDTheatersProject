@@ -62,6 +62,7 @@ namespace ShawnSnyderFinalPrject.MVC.DATA
             [Range(0,127)]
             public byte ReservationLimit { get; set; }
             [Required(ErrorMessage ="*")]
+            [DisplayFormat(DataFormatString = "{0:d}")]
             public DateTime Date { get; set; }
         }
         [MetadataType(typeof(TheaterMovyMetadata))]

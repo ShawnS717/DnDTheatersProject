@@ -1,24 +1,25 @@
 ﻿@model ShawnSnyderFinalPrject.MVC.DATA.Movy
 @{
     ShawnSnyderFinalPrject.MVC.DATA.DnDTheatersEntities db = new ShawnSnyderFinalPrject.MVC.DATA.DnDTheatersEntities();
-    var theaters = db.TheaterMovies.Where(x => x.MovieID == Model.MovieId).Distinct().ToList();
+    var theaters = db.TheaterMovies.Where(x => x.MovieID == Model.MovieId).GroupBy(x => x.TheaterID).Select(x => x.FirstOrDefault()).ToList();
+    
 }
 
 <h3 class="text-center">Theaters Playing @Model.Name:</h3>
 <hr />
-<table>
+<table style="margin:inherit auto;">
     <thead>
         <tr>
-            <th>Theater Name</th>
-            <th>Location</th>
+            <th class="text-center">Theater Name</th>
+            <th class="text-center">Location</th>
         </tr>
     </thead>
     <tbody>
         @foreach (var item in theaters)
         {
             <tr>
-                <td>@item.Theater.TheaterName</td>
-                <td>@item.Theater.Address @item.Theater.City @item.Theater.State</td>
+                <td class="text-center"><a href="@Url.Action("GetReservation", "TheaterMovies", new { theaterId = item.TheaterID,movieID=item.MovieID })" style="color:black;">@item.Theater.TheaterName</a></td>
+                <td class="text-center" style="padding-left:20px;"><a href="@Url.Action("GetReservation", "TheaterMovies", new { theaterId = item.TheaterID,movieID=item.MovieID }))" style="color:black;">@item.Theater.Address @item.Theater.City @item.Theater.State</a></td>
             </tr>
         }
     </tbody>
