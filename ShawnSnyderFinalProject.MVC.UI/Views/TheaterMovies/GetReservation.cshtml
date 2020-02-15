@@ -48,7 +48,7 @@
     @if (ViewBag.ErrorMessage != null)
     {
         <script>
-            alert(@ViewBag.ErrorMessage);
+            $("document").ready(function () {alert(@ViewBag.ErrorMessage);});
         </script>
     }
 }

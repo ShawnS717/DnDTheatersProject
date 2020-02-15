@@ -15,7 +15,10 @@
                 <p class="text-center">@item.Name</p>
                 <p class="text-center">@item.Description</p>
             </a>
-            <a class="text-danger">DELETE</a>
+            @if (User.IsInRole("Admin"))
+            {
+                <a class="text-danger">DELETE</a>
+            }
         </div>
     }
 </div>

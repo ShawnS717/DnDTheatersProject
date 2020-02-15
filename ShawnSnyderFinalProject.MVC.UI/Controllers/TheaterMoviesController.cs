@@ -132,6 +132,9 @@ namespace ShawnSnyderFinalProject.MVC.UI.Controllers
         [HttpGet]
         public ActionResult GetReservation(int? theaterID, int? movieID)
         {
+            Session["selectedTheater"] = theaterID;
+            Session["selectedMovie"] = movieID;
+
             if (theaterID == null || movieID == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -149,7 +152,8 @@ namespace ShawnSnyderFinalProject.MVC.UI.Controllers
 
                 TheaterMovy tm = db.TheaterMovies.Where(x => x.TMID == tmid).SingleOrDefault();
                 ViewBag.ErrorMessage = "you put in something invalid (probably nothing in the number of tickets you want)";
-                return View("GetReservation", theaterMovies.Where(x => (x.ReservationLimit - x.SeatIDs.Count) > 0 && x.TheaterID == tm.TheaterID && x.MovieID == tm.MovieID && x.Date > DateTime.Now).ToList());
+                return View("GetReservation",new { theaterId =  Session["selectedTheater"], movieID = Session["selectedMovie"]});
+                                                                //^use session to get what the user has selected and give that back upon an error
             }
             string userID;
 

@@ -9,7 +9,7 @@
     margin-bottom: 0;
     border-radius: 0;
     padding: 10px 0;
-    z-index:10;
+    z-index: 10;
 }
 
     .navbar li a {
@@ -18,9 +18,9 @@
 
 #main-wrapper {
     min-height: 85vh;
-    background-color:white;
-    width:60%;
-    padding:30px;
+    background-color: white;
+    width: 60%;
+    padding: 30px;
 }
 
 .row.content {
@@ -40,8 +40,8 @@ footer {
 
 /* On small screens, ditch the side padding */
 @media screen and (max-width: 767px) {
-    #main-wrapper{
-        width:100%;
+    #main-wrapper {
+        width: 100%;
     }
 
     .navbar-right {
@@ -55,6 +55,14 @@ footer {
     }
 }
 
-.card{
-    display:inline-block;
+.card {
+    display: inline-block;
+}
+
+.footer-left{
+    float:left;
+}
+
+.footer-right{
+    float:right;
 }
