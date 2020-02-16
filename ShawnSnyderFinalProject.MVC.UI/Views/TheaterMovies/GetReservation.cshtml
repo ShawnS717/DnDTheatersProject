@@ -4,12 +4,16 @@
     ViewBag.Title = "GetReservation";
 }
 
+@if (@ViewBag.ErrorMessage != null)
+{
+    <h3>@ViewBag.ErrorMessage</h3>
+}
 
 <h2 class="text-center">Pick a Time</h2>
 
 @foreach (var day in Model)
 {
-    <div style="border-top:2px solid gray;padding-top:1.5em;">@Html.DisplayTextFor(x => day.Date)</div>
+    <div style="border-top:2px solid gray;padding-top:1.5em;padding-left:20px">  @day.Date.ToShortDateString()</div>
     foreach (var time in Model.Where(x => x.Date == day.Date))
     {
         int hour = time.Showtime.Time / 100;
@@ -29,26 +33,20 @@
 @using (Html.BeginForm("MakeReservation", "TheaterMovies"))
 {
     <div style="display:inline-block">
-        <h4>How many tickets do you want?</h4>
-        <input id="nbrTickets" type="number" min="1" class="form-control" placeholder="# of Tickets" style="width:10em;" name="numOfTickets"  />
+        <h4>How many tickets would you like to purchase?</h4>
+        <input id="nbrTickets" type="number" min="1" class="form-control" placeholder="# of Tickets" style="width:10em;" name="numOfTickets" />
     </div>
     <input type="hidden" id="tmid" name="tmid" />
-    <div style="display:inline-block">
+    <div style="margin-top:5px;">
         <input type="submit" value="Buy Tickets" class="btn btn-success" />
     </div>
 }
 
 @section scripts{
     <script>
-        function updateForm(tmid,limit) {
+        function updateForm(tmid, limit) {
             document.getElementById("tmid").value = tmid;
             document.getElementById("nbrTickets").max = limit;
         }
     </script>
-    @if (ViewBag.ErrorMessage != null)
-    {
-        <script>
-            $("document").ready(function () {alert(@ViewBag.ErrorMessage);});
-        </script>
-    }
 }

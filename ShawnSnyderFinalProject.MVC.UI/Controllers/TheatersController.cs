@@ -10,17 +10,20 @@ using ShawnSnyderFinalPrject.MVC.DATA;
 
 namespace ShawnSnyderFinalProject.MVC.UI.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class TheatersController : Controller
     {
         private DnDTheatersEntities db = new DnDTheatersEntities();
 
         // GET: Theaters
+        [AllowAnonymous]
         public ActionResult Index()
         {
             return View(db.Theaters.ToList());
         }
 
         // GET: Theaters/Details/5
+        [AllowAnonymous]
         public ActionResult Details(int? id)
         {
             if (id == null)

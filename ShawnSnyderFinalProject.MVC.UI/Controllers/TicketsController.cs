@@ -10,6 +10,7 @@ using ShawnSnyderFinalPrject.MVC.DATA;
 
 namespace ShawnSnyderFinalProject.MVC.UI.Controllers
 {
+    [Authorize(Roles = "Admin Manager")]
     public class TicketsController : Controller
     {
         private DnDTheatersEntities db = new DnDTheatersEntities();
@@ -37,6 +38,7 @@ namespace ShawnSnyderFinalProject.MVC.UI.Controllers
         }
 
         // GET: Tickets/Create
+        [Authorize(Roles = "Admin")]
         public ActionResult Create()
         {
             ViewBag.UserID = new SelectList(db.UserDetails, "UserID", "FirstName");
@@ -48,6 +50,7 @@ namespace ShawnSnyderFinalProject.MVC.UI.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public ActionResult Create([Bind(Include = "TicketID,UserID")] Ticket ticket)
         {
             if (ModelState.IsValid)
@@ -62,6 +65,7 @@ namespace ShawnSnyderFinalProject.MVC.UI.Controllers
         }
 
         // GET: Tickets/Edit/5
+        [Authorize(Roles = "Admin")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -82,6 +86,7 @@ namespace ShawnSnyderFinalProject.MVC.UI.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public ActionResult Edit([Bind(Include = "TicketID,UserID")] Ticket ticket)
         {
             if (ModelState.IsValid)
@@ -95,6 +100,7 @@ namespace ShawnSnyderFinalProject.MVC.UI.Controllers
         }
 
         // GET: Tickets/Delete/5
+        [Authorize(Roles = "Admin")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -112,6 +118,7 @@ namespace ShawnSnyderFinalProject.MVC.UI.Controllers
         // POST: Tickets/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public ActionResult DeleteConfirmed(int id)
         {
             Ticket ticket = db.Tickets.Find(id);

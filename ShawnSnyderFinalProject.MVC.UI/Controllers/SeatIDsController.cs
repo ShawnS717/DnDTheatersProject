@@ -38,6 +38,7 @@ namespace ShawnSnyderFinalProject.MVC.UI.Controllers
         }
 
         // GET: SeatIDs/Create
+        [Authorize(Roles = "Admin")]
         public ActionResult Create()
         {
             ViewBag.TMID = new SelectList(db.TheaterMovies, "TMID", "TMID");
@@ -50,6 +51,7 @@ namespace ShawnSnyderFinalProject.MVC.UI.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public ActionResult Create([Bind(Include = "SeatID1,TMID,TicketID")] SeatID seatID)
         {
             if (ModelState.IsValid)
@@ -65,6 +67,7 @@ namespace ShawnSnyderFinalProject.MVC.UI.Controllers
         }
 
         // GET: SeatIDs/Edit/5
+        [Authorize(Roles = "Admin")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -86,6 +89,7 @@ namespace ShawnSnyderFinalProject.MVC.UI.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public ActionResult Edit([Bind(Include = "SeatID1,TMID,TicketID")] SeatID seatID)
         {
             if (ModelState.IsValid)
@@ -100,6 +104,7 @@ namespace ShawnSnyderFinalProject.MVC.UI.Controllers
         }
 
         // GET: SeatIDs/Delete/5
+        [Authorize(Roles = "Admin")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -117,6 +122,7 @@ namespace ShawnSnyderFinalProject.MVC.UI.Controllers
         // POST: SeatIDs/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public ActionResult DeleteConfirmed(int id)
         {
             SeatID seatID = db.SeatIDs.Find(id);
