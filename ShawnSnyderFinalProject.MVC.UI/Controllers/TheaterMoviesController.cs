@@ -146,23 +146,24 @@ namespace ShawnSnyderFinalProject.MVC.UI.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             var theaterMovies = db.TheaterMovies.Include(t => t.Movy).Include(t => t.Showtime).Include(t => t.Theater).Include(t => t.SeatIDs);
-            return View(theaterMovies.Where(x => (x.ReservationLimit - x.SeatIDs.Count) > 0 && x.TheaterID == theaterID && x.MovieID == movieID && x.Date > DateTime.Now).ToList());
+            //return View(theaterMovies.Where(x => (x.ReservationLimit - x.SeatIDs.Count) > 0 && x.TheaterID == theaterID && x.MovieID == movieID && x.Date > DateTime.Now).GroupBy(x => x.Date).Select(x => x.FirstOrDefault()).ToList());
+            var movies = theaterMovies.Where(x => (x.ReservationLimit - x.SeatIDs.Count) > 0 && x.TheaterID == theaterID && x.MovieID == movieID && x.Date > DateTime.Now).ToList();
+            return View(movies);
+
         }
 
         [HttpPost]
         public ActionResult MakeReservation(int? numOfTickets, int? tmid)
         {
-            if (numOfTickets < 1 || numOfTickets == null || tmid==null || tmid==0)
+            if (numOfTickets < 1 || numOfTickets == null || tmid == null || tmid == 0)
             {
                 var theaterMovies = db.TheaterMovies.Include(x => x.Movy).Include(x => x.Showtime).Include(x => x.Theater).Include(x => x.SeatIDs);
 
                 TheaterMovy tm = db.TheaterMovies.Where(x => x.TMID == tmid).SingleOrDefault();
-                Session["error"] = "you put in something invalid. double check you chose a time and how many tickets";
-                return RedirectToAction("GetReservation",new { theaterID =  (int)Session["selectedTheater"], movieID = (int)Session["selectedMovie"] });
+                Session["error"] = "you missed something. Double check you chose a time AND how many tickets you want";
+                return RedirectToAction("GetReservation", new { theaterID = (int)Session["selectedTheater"], movieID = (int)Session["selectedMovie"] });
             }
             string userID;
-
-            Ticket t = new Ticket();
             if (Request.IsAuthenticated)
             {
                 userID = User.Identity.GetUserId();
@@ -171,15 +172,18 @@ namespace ShawnSnyderFinalProject.MVC.UI.Controllers
             {
                 userID = "761aa9be-9849-4596-a8e7-d30611343cb9";
             }
-            t.UserID = userID;
             for (int i = 0; i < numOfTickets; i++)
             {
-                db.Tickets.Add(t); 
+                Ticket t = new Ticket();
+
+                t.UserID = userID;
+
+                db.Tickets.Add(t);
             }
             db.SaveChanges();
 
-            var purchasedTickets = db.Tickets.Where(x => x.UserID == userID).OrderBy(x=>x.TicketID).Take((int)numOfTickets).ToList();
-            foreach(var item in purchasedTickets)
+            var purchasedTickets = db.Tickets.Where(x => x.UserID == userID).OrderBy(x => x.TicketID).Take((int)numOfTickets).ToList();
+            foreach (var item in purchasedTickets)
             {
                 SeatID s = new SeatID();
                 s.TMID = (int)tmid;

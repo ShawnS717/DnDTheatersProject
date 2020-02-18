@@ -77,7 +77,17 @@ namespace ShawnSnyderFinalProject.MVC.UI.Controllers
                 return HttpNotFound();
             }
             ViewBag.UserID = new SelectList(db.AspNetUsers, "Id", "Email", userDetail.UserID);
-            ViewBag.AssignedTheaterID = new SelectList(db.Theaters, "TheaterID", "TheaterName", userDetail.AssignedTheaterID);
+            var theaters = (from t in db.Theaters
+                            select new SelectListItem
+                            {
+                                Text = t.TheaterName,
+                                Value = t.TheaterID.ToString()
+                            }).ToList();
+
+            theaters.Insert(0, new SelectListItem() { Text = "None", Value = "" });
+
+            ViewBag.AssignedTheaterID = theaters;
+            
             return View(userDetail);
         }
 

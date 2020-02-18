@@ -4,7 +4,7 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2 class="text-center">Movie Showings</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -12,16 +12,16 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.ReservationLimit)
+            Reservation Limit
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Movy.Name)
+            Movie
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Showtime.ShowtimeID)
+            Showtime
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Theater.TheaterName)
+            Theater
         </th>
         <th></th>
     </tr>
@@ -35,7 +35,7 @@
             @Html.DisplayFor(modelItem => item.Movy.Name)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Showtime.ShowtimeID)
+            @Html.DisplayFor(modelItem => item.Showtime.Time)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Theater.TheaterName)

@@ -2,11 +2,12 @@
 
 @{
     ViewBag.Title = "GetReservation";
+    var dates = Model.Select(x => x.Date).Distinct().OrderBy(x=>x.Date).ToList();
 }
 
-@if (@ViewBag.ErrorMessage != null)
+@if (Session["error"] != null)
 {
-    <h3>@((string)Session["error"])</h3>
+    <h4 class="text-danger">@Session["error"].ToString()</h4>
     Session["error"] = null;
 }
 
@@ -18,12 +19,14 @@ else
 {
     <h2 class="text-center">Pick a Time</h2>
 
-    foreach (var day in Model)
+    foreach (var day in dates)
     {
         string ampm;
-        <div style="border-top:2px solid gray;padding-top:1.5em;padding-left:20px">  @day.Date.ToShortDateString()</div>
-        foreach (var time in Model.Where(x => x.Date == day.Date))
+        <div style="border-top:2px solid gray;padding-top:1.5em;padding-left:20px">  @day.ToShortDateString()</div>
+
+        foreach (var time in Model.Where(x => x.Date == day))
         {
+            #region timestuff
             int hour = time.Showtime.Time / 100;
             int min = time.Showtime.Time % 100;
             if (hour > 11)
@@ -35,12 +38,14 @@ else
             {
                 ampm = "am";
             }
+            #endregion
+
             <div class="card">
-                <input type="radio" name="day-time-selection" id="selectionRadio@(day.Date + "-" + time.Showtime.Time)" value="@time.TMID" onclick="updateForm(@time.TMID,@(day.ReservationLimit - day.SeatIDs.Count))" />
-                <label for="selectionRadio@(day.Date + "-" + time.Showtime.Time)" class="well">
+                <input type="radio" name="day-time-selection" id="selectionRadio@(time.Date + "-" + time.Showtime.Time)" value="@time.TMID" onclick="updateForm(@time.TMID,@(time.ReservationLimit - time.SeatIDs.Count))" />
+                <label for="selectionRadio@(time.Date + "-" + time.Showtime.Time)" class="well">
                     @((hour > 0) ? hour.ToString() : "12"):@min @ampm
                     <br />
-                    Remaining seats: @Html.Raw(day.ReservationLimit - day.SeatIDs.Count)
+                    Remaining seats: @Html.Raw(time.ReservationLimit - time.SeatIDs.Count)
                 </label>
             </div>
         }
@@ -49,14 +54,14 @@ else
 
     using (Html.BeginForm("MakeReservation", "TheaterMovies"))
     {
-        <div style="display:inline-block">
-            <h4>How many tickets would you like to purchase?</h4>
-            <input id="nbrTickets" type="number" min="1" value="1" class="form-control" placeholder="# of Tickets" style="width:10em;" name="numOfTickets" />
-        </div>
-        <input type="hidden" id="tmid" name="tmid" />
-        <div style="margin-top:5px;">
+    <div style="display:inline-block">
+        <h4>How many tickets would you like to purchase?</h4>
+        <input id="nbrTickets" type="number" min="1" value="1" class="form-control" placeholder="# of Tickets" style="width:10em;display:inline-block;" name="numOfTickets" />
+        <div style="margin-top:5px;display:inline-block;margin-left:10px;">
             <input type="submit" value="Buy Tickets" class="btn btn-success" />
         </div>
+    </div>
+        <input type="hidden" id="tmid" name="tmid" />
     }
 }
 

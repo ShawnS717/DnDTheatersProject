@@ -6,21 +6,16 @@
 
 <h1 class="text-center" style="margin-bottom:2em"><img src="~/Content/img/Title.png" style="height:1.5em;"/></h1>
 
-<h2 class="text-center">Movies Playing Now!</h2>
+<h2 class="text-center"style="padding-bottom:1em;">Movies Playing Now!</h2>
 
-<div class="owl-carousel jumbotron"style="height:35em">
-    @foreach (var item in Model)
+<div class="owl-carousel jumbotron"style="background-color:#666;">
+    @foreach (var item in Model.OrderBy(x=>x.Name))
     {
-        <div class="well carousel-item" style="padding:10px;height:30em;overflow-y:hidden;">
-            <a href="@Url.Action("Details", "Movies", new { id=item.MovieId })" style="color:black;cursor: ew-resize;">
-                <img src="~/Content/img/@item.ImagePath" alt="Movie's poster" />
+        <div class="well carousel-item" style="padding:10px;overflow-y:hidden;height:27em;">
+            <a href="@Url.Action("Details", "Movies", new { id=item.MovieId })" style="color:black;cursor:ew-resize;height:90%;">
+                <img src="~/Content/img/@item.ImagePath" alt="@item.Name's poster" style="max-height:20em" />
                 <p class="text-center">@item.Name</p>
-                <p class="text-center">@item.Description</p>
             </a>
-            @if (User.IsInRole("Admin"))
-            {
-                <a class="text-danger">DELETE</a>
-            }
         </div>
     }
 </div>

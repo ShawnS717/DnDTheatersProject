@@ -4,7 +4,7 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Movies Playing</h2>
+<h2 class="text-center">Movies Playing</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -24,7 +24,7 @@
             @Html.DisplayNameFor(model => model.PercentRating)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ImagePath)
+            Poster
         </th>
         <th></th>
     </tr>
@@ -41,7 +41,7 @@
             @Html.DisplayFor(modelItem => item.esrbRating)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.PercentRating)
+            @Html.DisplayFor(modelItem => item.PercentRating)%
         </td>
         <td>
             <img src="~/Content/img/@item.ImagePath" alt="the movie's photo" style="max-height:100px;max-width:100px;" />

@@ -4,56 +4,57 @@
     ViewBag.Title = "MyTickets";
 }
 
-<h2>MyTickets</h2>
+@if (Model.Count() > 0)
+{
+    <h2 class="text-center">MyTickets</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            Theater
-        </th>
-        <th>
-            Name
-        </th>
-        <th>
-            Movie
-        </th>
-        <th>
-            Time
-        </th>
-    </tr>
+    <table class="table">
+        <tr>
+            <th>
+                Theater
+            </th>
+            <th>
+                Movie
+            </th>
+            <th>
+                Time
+            </th>
+        </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @item.TheaterMovy.Theater.TheaterName
-        </td>
-        <td>
-            @(item.Ticket.UserDetail.FirstName+" "+item.Ticket.UserDetail.LastName)
-        </td>
-        <td>
-            @item.TheaterMovy.Movy.Name
-        </td>
-        <td>
-            @{
-                string ampm;
-                int hour = item.TheaterMovy.Showtime.Time / 100;
-                int min = item.TheaterMovy.Showtime.Time % 100;
-                if (hour > 11)
-                {
-                    ampm = "pm";
-                    hour -= 12;
-                }
-                else
-                {
-                    ampm = "am";
-                }
-            }
-            @(item.TheaterMovy.Date.Month + "-" + item.TheaterMovy.Date.Day + "-" + item.TheaterMovy.Date.Year) <br />@((hour > 0) ? hour.ToString() : "12"):@min @ampm
-        </td>
-    </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @item.TheaterMovy.Theater.TheaterName
+                </td>
+                <td>
+                    @item.TheaterMovy.Movy.Name
+                </td>
+                <td>
+                    @{
+                        string ampm;
+                        int hour = item.TheaterMovy.Showtime.Time / 100;
+                        int min = item.TheaterMovy.Showtime.Time % 100;
+                        if (hour > 11)
+                        {
+                            ampm = "pm";
+                            hour -= 12;
+                        }
+                        else
+                        {
+                            ampm = "am";
+                        }
+                    }
+                    @(item.TheaterMovy.Date.Month + "-" + item.TheaterMovy.Date.Day + "-" + item.TheaterMovy.Date.Year) <br />@((hour > 0) ? hour.ToString() : "12"):@min @ampm
+                </td>
+            </tr>
+        }
+
+    </table>
+
 }
-
-</table>
+else
+{
+    <h2 class="text-center">You haven't gotten any tickets yet</h2>
+    <h3 class="text-center">Go get some then come back</h3>
+}

@@ -20,7 +20,7 @@ namespace ShawnSnyderFinalProject.MVC.UI.Controllers
         public ActionResult Index()
         {
             var tickets = db.Tickets.Include(t => t.UserDetail);
-            return View(tickets.ToList());
+            return View(tickets.OrderByDescending(x=>x.TicketID).ToList());
         }
 
         // GET: Tickets/Details/5

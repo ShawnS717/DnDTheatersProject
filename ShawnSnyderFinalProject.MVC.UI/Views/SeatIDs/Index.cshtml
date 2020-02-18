@@ -4,7 +4,7 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2 class="text-center">Assigned Seating</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -18,7 +18,7 @@
             Theater 
         </th>
         <th>
-            User's ID
+            Customer Name
         </th>
         <th></th>
     </tr>
@@ -32,7 +32,7 @@
             @Html.DisplayFor(modelItem => item.TheaterMovy.Theater.TheaterName)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Ticket.UserID)
+            @(item.Ticket.UserDetail.FirstName+" "+item.Ticket.UserDetail.LastName)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.SeatID1 }) |

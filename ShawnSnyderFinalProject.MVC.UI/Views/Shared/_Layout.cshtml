@@ -27,16 +27,16 @@
             </div>
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav">
-                    <li><a href="@Url.Action("Index","Home")" class="btn" style="color:white">Home</a></li>
-                    <li><a href="@Url.Action("Contact","Home")" class="btn" style="color:white">Contact</a></li>
+                    <li><a href="@Url.Action("Index","Home")" class="btn" style="color:white;border:2px solid #aaa;margin:2px;">Home</a></li>
+                    <li><a href="@Url.Action("Contact","Home")" class="btn" style="color:white;border:2px solid #aaa;margin:2px;">Contact</a></li>
                     @if (User.Identity.IsAuthenticated)
                     {
-                        <li><a href="@Url.Action("MyTickets","SeatIDs")" class="btn" style="color:white">My Tickets</a></li>
+                        <li><a href="@Url.Action("MyTickets","SeatIDs")" class="btn" style="color:white;border:2px solid #aaa;margin:2px;">My Tickets</a></li>
                     }
                     @if (User.IsInRole("Admin"))
                     {
-                        <li><a href="@Url.Action("Index","UsersAdmin")" class="btn" style="color:white">Users (Admin-Only)</a></li>
-                        <li><a href="@Url.Action("Index","RolesAdmin")" class="btn" style="color:white">Roles (Admin-Only)</a></li>
+                        <li><a href="@Url.Action("Index","UsersAdmin")" class="btn" style="color:white;border:2px solid #aaa;margin:2px;">Users (Admin-Only)</a></li>
+                        <li><a href="@Url.Action("Index","RolesAdmin")" class="btn" style="color:white;border:2px solid #aaa;margin:2px;">Roles (Admin-Only)</a></li>
                     }
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
@@ -52,20 +52,32 @@
             <div class="management-content">
                 Management:
                 <a href="@Url.Action("Index","Movies")" class="btn btn-default">Movies</a>
-                <a href="@Url.Action("Index","SeatIDs")" class="btn btn-default">Assigned Seating</a>
-                <a href="@Url.Action("Index","Showtimes")" class="btn btn-default">Showtimes</a>
-                <a href="@Url.Action("Index","TheaterMovies")" class="btn btn-default">Movies At Theaters</a>
                 <a href="@Url.Action("Index","Theaters")" class="btn btn-default">Theaters</a>
+                <a href="@Url.Action("Index","TheaterMovies")" class="btn btn-default">Scheduled Showings</a>
+                <a href="@Url.Action("Index","Showtimes")" class="btn btn-default">Showtimes</a>
+                <a href="@Url.Action("Index","SeatIDs")" class="btn btn-default">Assigned Seating</a>
                 <a href="@Url.Action("Index","Tickets")" class="btn btn-default">Tickets</a>
             </div>
         </div>
     }
+    @if (User.IsInRole("Admin") || User.IsInRole("Manager"))
+    {
+        <div class="container-fluid clearfix" id="main-wrapper" style="padding-top:6em;">
+            <main>
+                @RenderBody()
+            </main>
+        </div>
+    }
+    else
+    {
+        <div class="container-fluid clearfix" id="main-wrapper" style="padding-top:3em;">
+            <main>
+                @RenderBody()
+            </main>
+        </div>
+    }
 
-    <div class="container-fluid clearfix" id="main-wrapper" style="padding-top:3em;">
-        <main>
-            @RenderBody()
-        </main>
-    </div>
+
 
     <footer class="container-fluid text-center">
         <div class="footer-left">
@@ -80,7 +92,10 @@
             <div>
                 <a href="https://github.com/firehawk9876/DnDTheatersProject" style="color:white;text-decoration:underline;">The Github For this project</a><br />
                 <div>
-                    designed with a worst case User in mind
+                    Non managerial functionality designed
+                </div>
+                <div>
+                    with a worst case User in mind
                 </div>
             </div>
         </div>
