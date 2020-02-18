@@ -1,5 +1,10 @@
 ﻿@using Microsoft.AspNet.Identity
 
+@{var id = User.Identity.GetUserId();
+    ShawnSnyderFinalPrject.MVC.DATA.DnDTheatersEntities db = new ShawnSnyderFinalPrject.MVC.DATA.DnDTheatersEntities();
+    var username = db.UserDetails.Where(x => x.UserID == id).FirstOrDefault();
+}
+
 @if (Request.IsAuthenticated)
 {
     using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
@@ -8,7 +13,7 @@
 
         <ul class="nav navbar-nav navbar-right">
             <li>
-                @Html.ActionLink("Welcome " + u + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage", style = "margin-left:10px;color:white;", @class = "text-center" });
+                @Html.ActionLink("Welcome " + User.Identity.Name + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage", style = "margin-left:10px;color:white;", @class = "text-center" });
             </li>
             <li><a href="javascript:document.getElementById('logoutForm').submit()" style="margin-left:10px;color:white" class="nav-link text-center">Log off</a></li>
         </ul>
