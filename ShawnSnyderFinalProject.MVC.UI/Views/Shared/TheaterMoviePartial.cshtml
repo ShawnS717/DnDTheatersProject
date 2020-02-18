@@ -20,9 +20,9 @@
         <tbody>
             @foreach (var item in theaters)
             {
-                <tr>
+                <tr class="well">
                     <td class="text-center"><a href="@Url.Action("GetReservation", "TheaterMovies", new { theaterId = item.TheaterID,movieID=item.MovieID })" style="color:black;">@item.Theater.TheaterName</a></td>
-                    <td class="text-center" style="padding-left:20px;"><a href="@Url.Action("GetReservation", "TheaterMovies", new { theaterId = item.TheaterID,movieID=item.MovieID })" style="color:black;">@item.Theater.Address @item.Theater.City @item.Theater.State</a></td>
+                    <td class="text-center" style="padding:20px;"><a href="@Url.Action("GetReservation", "TheaterMovies", new { theaterId = item.TheaterID,movieID=item.MovieID })" style="color:black;">@item.Theater.Address @item.Theater.City @item.Theater.State</a></td>
                 </tr>
             }
         </tbody>
