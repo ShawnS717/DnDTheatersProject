@@ -10,7 +10,7 @@ using ShawnSnyderFinalPrject.MVC.DATA;
 
 namespace ShawnSnyderFinalProject.MVC.UI.Controllers
 {
-    [Authorize(Roles = "Admin")]
+    [Authorize(Roles = "Manager, Admin")]
     public class TheatersController : Controller
     {
         private DnDTheatersEntities db = new DnDTheatersEntities();

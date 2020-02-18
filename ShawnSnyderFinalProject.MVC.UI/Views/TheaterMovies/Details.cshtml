@@ -27,11 +27,11 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Showtime.ShowtimeID)
+            @Html.DisplayNameFor(model => model.Showtime.Time)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Showtime.ShowtimeID)
+            @Html.DisplayFor(model => model.Showtime.Time)
         </dd>
 
         <dt>
@@ -40,6 +40,14 @@
 
         <dd>
             @Html.DisplayFor(model => model.Theater.TheaterName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(x=>x.Date.Date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(x=>x.Date.Date)
         </dd>
 
     </dl>

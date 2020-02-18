@@ -6,11 +6,12 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using Microsoft.AspNet.Identity;
 using ShawnSnyderFinalPrject.MVC.DATA;
 
 namespace ShawnSnyderFinalProject.MVC.UI.Controllers
 {
-    [Authorize(Roles = "Admin Manager")]
+    [Authorize(Roles = "Admin, Manager")]
     public class TicketsController : Controller
     {
         private DnDTheatersEntities db = new DnDTheatersEntities();

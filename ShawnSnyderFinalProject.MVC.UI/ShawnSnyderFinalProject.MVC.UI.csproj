@@ -185,6 +185,7 @@
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AdminViewModel.cs" />
+    <Compile Include="Models\ContactViewModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -198,6 +199,7 @@
     <Content Include="Content\css\custom.css" />
     <Content Include="Content\img\BackgroundImage.jpg" />
     <Content Include="Content\img\noimage.jpg" />
+    <Content Include="Content\img\Title.PNG" />
     <Content Include="Content\js\jquery-1.11.2.min.js" />
     <Content Include="Content\OwlCarousel2-2.3.4\.gitattributes" />
     <Content Include="Content\OwlCarousel2-2.3.4\.gitignore" />
@@ -491,6 +493,7 @@
     <Content Include="Views\Shared\TheaterMoviePartial.cshtml" />
     <Content Include="Views\TheaterMovies\GetReservation.cshtml" />
     <Content Include="Views\TheaterMovies\MakeReservation.cshtml" />
+    <Content Include="Views\SeatIDs\MyTickets.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

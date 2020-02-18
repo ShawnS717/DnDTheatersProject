@@ -11,7 +11,7 @@
     @Html.AntiForgeryToken()
 
     <div class="form-horizontal">
-        <h4>Edit User Form.</h4>
+        <h4>Edit User</h4>
         <hr />
         @Html.ValidationSummary(true)
         @Html.HiddenFor(model => model.Id)
@@ -22,7 +22,7 @@
                @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
                @Html.ValidationMessageFor(model => model.Email)
             </div>
-        </div>
+        </div>z
         <div class="form-group">
             @Html.Label("Roles", new { @class = "control-label col-md-2" })
             <span class=" col-md-10">
@@ -41,6 +41,8 @@
         </div>
     </div>
 }
+
+<a href="@Url.Action("edit","UserDetails",new { Model.Id })" class="btn btn-default">Edit finer details here!</a>
 
 <div>
     @Html.ActionLink("Back to List", "Index")

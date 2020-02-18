@@ -38,7 +38,7 @@ namespace ShawnSnyderFinalProject.MVC.UI.Controllers
         }
 
         // GET: TheaterMovies/Create
-        [Authorize(Roles = "Admin Manager")]
+        [Authorize(Roles = "Admin, Manager")]
         public ActionResult Create()
         {
             ViewBag.MovieID = new SelectList(db.Movies, "MovieId", "Name");
@@ -52,7 +52,7 @@ namespace ShawnSnyderFinalProject.MVC.UI.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [Authorize(Roles = "Admin Manager")]
+        [Authorize(Roles = "Admin, Manager")]
         public ActionResult Create([Bind(Include = "TMID,TheaterID,MovieID,ShowtimeID,ReservationLimit")] TheaterMovy theaterMovy)
         {
             if (ModelState.IsValid)
@@ -69,7 +69,7 @@ namespace ShawnSnyderFinalProject.MVC.UI.Controllers
         }
 
         // GET: TheaterMovies/Edit/5
-        [Authorize(Roles = "Admin Manager")]
+        [Authorize(Roles = "Admin, Manager")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -92,7 +92,7 @@ namespace ShawnSnyderFinalProject.MVC.UI.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [Authorize(Roles = "Admin Manager")]
+        [Authorize(Roles = "Admin, Manager")]
         public ActionResult Edit([Bind(Include = "TMID,TheaterID,MovieID,ShowtimeID,ReservationLimit")] TheaterMovy theaterMovy)
         {
             if (ModelState.IsValid)
@@ -108,7 +108,7 @@ namespace ShawnSnyderFinalProject.MVC.UI.Controllers
         }
 
         // GET: TheaterMovies/Delete/5
-        [Authorize(Roles = "Admin Manager")]
+        [Authorize(Roles = "Admin, Manager")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -126,7 +126,7 @@ namespace ShawnSnyderFinalProject.MVC.UI.Controllers
         // POST: TheaterMovies/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        [Authorize(Roles = "Admin Manager")]
+        [Authorize(Roles = "Admin, Manager")]
         public ActionResult DeleteConfirmed(int id)
         {
             TheaterMovy theaterMovy = db.TheaterMovies.Find(id);
@@ -157,9 +157,8 @@ namespace ShawnSnyderFinalProject.MVC.UI.Controllers
                 var theaterMovies = db.TheaterMovies.Include(x => x.Movy).Include(x => x.Showtime).Include(x => x.Theater).Include(x => x.SeatIDs);
 
                 TheaterMovy tm = db.TheaterMovies.Where(x => x.TMID == tmid).SingleOrDefault();
-                ViewBag.ErrorMessage = "you put in something invalid (probably nothing in the number of tickets you want)";
-                return View("GetReservation",new { theaterId =  Session["selectedTheater"], movieID = Session["selectedMovie"]});
-                                                                //^use session to get what the user has selected and give that back upon an error
+                Session["error"] = "you put in something invalid. double check you chose a time and how many tickets";
+                return RedirectToAction("GetReservation",new { theaterID =  (int)Session["selectedTheater"], movieID = (int)Session["selectedMovie"] });
             }
             string userID;
 

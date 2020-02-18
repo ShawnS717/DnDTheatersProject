@@ -8,19 +8,36 @@
 .navbar {
     margin-bottom: 0;
     border-radius: 0;
-    padding: 10px 0;
+    padding-top:1em;
     z-index: 10;
 }
 
-    .navbar li a {
-        color: white;
-    }
+.navbar-nav li a {
+    color: white;
+}
+
+.management-tab {
+    background-color: #444;
+    color: white;
+    z-index: 1000;
+    float: left;
+    padding: 1em;
+    border-radius: 0 0 10px 0;
+}
+
+.management-content {
+    color: white;
+}
 
 #main-wrapper {
     min-height: 85vh;
     background-color: white;
     width: 60%;
     padding: 30px;
+}
+
+.owl-item {
+    cursor: ew-resize;
 }
 
 .row.content {
@@ -59,14 +76,14 @@ footer {
     display: inline-block;
 }
 
-.footer-left{
-    float:left;
-    text-align:center;
-    margin-left:25%;
+.footer-left {
+    float: left;
+    text-align: center;
+    margin-left: 25%;
 }
 
-.footer-right{
-    float:right;
-    text-align:center;
-    margin-right:25%;
+.footer-right {
+    float: right;
+    text-align: center;
+    margin-right: 25%;
 }

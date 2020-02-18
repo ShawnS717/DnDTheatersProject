@@ -6,11 +6,12 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using Microsoft.AspNet.Identity;
 using ShawnSnyderFinalPrject.MVC.DATA;
 
 namespace ShawnSnyderFinalProject.MVC.UI.Controllers
 {
-    [Authorize(Roles ="Manager Admin")]
+    [Authorize(Roles = "Manager, Admin")]
     public class SeatIDsController : Controller
     {
         private DnDTheatersEntities db = new DnDTheatersEntities();
@@ -129,6 +130,21 @@ namespace ShawnSnyderFinalProject.MVC.UI.Controllers
             db.SeatIDs.Remove(seatID);
             db.SaveChanges();
             return RedirectToAction("Index");
+        }
+
+        [HttpGet]
+        [AllowAnonymous]
+        public ActionResult MyTickets()
+        {
+            if (User.Identity.IsAuthenticated)
+            {
+                string id = User.Identity.GetUserId();
+                return View(db.SeatIDs.Where(x => x.Ticket.UserID == id).ToList());
+            }
+            else
+            {
+                return RedirectToAction("Index", "Home");
+            }
         }
 
         protected override void Dispose(bool disposing)
