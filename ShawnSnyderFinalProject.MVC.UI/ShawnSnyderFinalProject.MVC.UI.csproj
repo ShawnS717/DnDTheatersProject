@@ -494,6 +494,7 @@
     <Content Include="Views\TheaterMovies\GetReservation.cshtml" />
     <Content Include="Views\TheaterMovies\MakeReservation.cshtml" />
     <Content Include="Views\SeatIDs\MyTickets.cshtml" />
+    <Content Include="Views\Home\EmailConfirmation.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
