@@ -53,10 +53,11 @@ namespace ShawnSnyderFinalProject.MVC.UI.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Admin, Manager")]
-        public ActionResult Create([Bind(Include = "TMID,TheaterID,MovieID,ShowtimeID,ReservationLimit")] TheaterMovy theaterMovy)
+        public ActionResult Create([Bind(Include = "TMID,TheaterID,MovieID,ShowtimeID,ReservationLimit")] TheaterMovy theaterMovy,int Day,int Month,int Year)
         {
             if (ModelState.IsValid)
             {
+                theaterMovy.Date = new DateTime(Year, Month, Day);
                 db.TheaterMovies.Add(theaterMovy);
                 db.SaveChanges();
                 return RedirectToAction("Index");
