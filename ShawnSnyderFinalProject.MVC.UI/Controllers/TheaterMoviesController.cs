@@ -147,7 +147,6 @@ namespace ShawnSnyderFinalProject.MVC.UI.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             var theaterMovies = db.TheaterMovies.Include(t => t.Movy).Include(t => t.Showtime).Include(t => t.Theater).Include(t => t.SeatIDs);
-            //return View(theaterMovies.Where(x => (x.ReservationLimit - x.SeatIDs.Count) > 0 && x.TheaterID == theaterID && x.MovieID == movieID && x.Date > DateTime.Now).GroupBy(x => x.Date).Select(x => x.FirstOrDefault()).ToList());
             var movies = theaterMovies.Where(x => (x.ReservationLimit - x.SeatIDs.Count) > 0 && x.TheaterID == theaterID && x.MovieID == movieID && x.Date > DateTime.Now).ToList();
             return View(movies);
 

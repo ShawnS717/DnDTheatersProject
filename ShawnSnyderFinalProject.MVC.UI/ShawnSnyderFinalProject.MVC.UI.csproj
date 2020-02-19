@@ -398,6 +398,7 @@
     <Content Include="Content\OwlCarousel2-2.3.4\src\scss\_theme.scss" />
     <Content Include="Content\OwlCarousel2-2.3.4\src\scss\_video.scss" />
     <Content Include="Content\OwlCarousel2-2.3.4\_config.json" />
+    <Content Include="Content\ShawnSnyderFinalProjectDocumentation.pdf" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -411,7 +412,9 @@
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -495,10 +498,10 @@
     <Content Include="Views\TheaterMovies\MakeReservation.cshtml" />
     <Content Include="Views\SeatIDs\MyTickets.cshtml" />
     <Content Include="Views\Home\EmailConfirmation.cshtml" />
+    <Content Include="_Archive\ShawnSnyderFinalProjectDocumentation.pdf" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="_Archive\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
