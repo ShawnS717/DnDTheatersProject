@@ -37,13 +37,10 @@ namespace ShawnSnyderFinalProject.MVC.UI.Controllers
 
             string message = $"Message From DnD Theaters To Customer support.<br/>Customer Name: {cvm.Name}<br/>Email: {cvm.Email}<br/>{cvm.Message}";
 
-            MailMessage mm = new MailMessage("Admin@snyderoding.com", "firehawk9876@gmail.com", cvm.Subject, message);
             mm.IsBodyHtml = true;
             mm.Priority = MailPriority.High;
             mm.ReplyToList.Add(cvm.Email);
 
-            SmtpClient client = new SmtpClient("mail.snydercoding.com");
-            client.Credentials = new NetworkCredential("Admin@snydercoding.com", "55lg2d2d!");
 
             try
             {
